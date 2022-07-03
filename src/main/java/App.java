@@ -1,8 +1,6 @@
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 import models.Doctor;
-import org.sql2o.Connection;
-import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import sql2o.Sql2oDoctor;
@@ -24,8 +22,8 @@ public class App {
 //        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
 //    }
     public static void main(String[] args) {
-        Gson gson = new Gson();
         Sql2oDoctor sql2oDoctor = new Sql2oDoctor();
+        Gson gson = new Gson();
 
 //        port(getHerokuAssignedPort());
 //        Connection conn;
