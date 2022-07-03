@@ -1,8 +1,8 @@
 
 import com.google.gson.Gson;
 import models.Doctor;
-import org.sql2o.Connection;
-import org.sql2o.Sql2o;
+//import org.sql2o.Connection;
+//import org.sql2o.Sql2o;
 import sql2o.Sql2oDoctor;
 
 
