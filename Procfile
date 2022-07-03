@@ -1,1 +1,1 @@
-web: ./build/install/my-doctor/bin/my-doctor
+web: ./build/install/mydoctor/bin/mydoctor
