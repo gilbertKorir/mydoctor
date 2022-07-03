@@ -18,7 +18,7 @@ dependencies {
 
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation 'org.sql2o:sql2o:1.6.0'
+//    implementation 'org.sql2o:sql2o:1.6.0'
 //    implementation group: 'com.h2database', name: 'h2', version: '1.4.191'
     implementation 'com.sparkjava:spark-core:2.9.3'
     implementation 'com.sparkjava:spark-template-handlebars:2.7.1'
