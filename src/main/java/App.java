@@ -1,12 +1,17 @@
 
 import com.google.gson.Gson;
 import models.Doctor;
-//import org.sql2o.Connection;
-//import org.sql2o.Sql2o;
+import org.sql2o.Connection;
+import org.sql2o.Sql2o;
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
 import sql2o.Sql2oDoctor;
 
 
 //import java.sql.Connection;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static spark.Spark.*;
 
@@ -47,15 +52,21 @@ public class App {
 //        conn = sql2o.open();
 
         staticFileLocation("/public");
-        get("/doctor","application/json",(request, response) -> {
-            System.out.println(sql2oDoctor.getAll());
 
-            if(sql2oDoctor.getAll().size()>0){
+        get("/", (request, response) ->{
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/doctor","application/json",(request, response) -> {
+//            System.out.println(sql2oDoctor.getAll());
+
+//            if(sql2oDoctor.getAll().size()>0){
                 return gson.toJson(sql2oDoctor.getAll());
-            }
-            else {
-                return "{\"message\":\"I'm sorry, but no departments are currently listed in the database.\"}";
-            }
+//            }
+//            else {
+//                return "{\"message\":\"I'm sorry, but no departments are currently listed in the database.\"}";
+//            }
         });
         post("/doctor/new", "application/json", (request,response)->{
             Doctor doctor = gson.fromJson(request.body(), Doctor.class);
